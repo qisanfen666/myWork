@@ -79,7 +79,7 @@ void Widget::on_confirm_Button_clicked()
     }
 }
 
-//关闭界面
+//关闭当前界面
 void Widget::on_cancel_Button_clicked()
 {
     this->close();
