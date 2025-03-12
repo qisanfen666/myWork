@@ -7,6 +7,8 @@ UserWindow::UserWindow(QWidget *parent)
     , ui(new Ui::UserWindow)
 {
     ui->setupUi(this);
+
+    //设置图片
     QIcon con("E:\\picture\\emu.png");
     this->setWindowIcon(con);
     this->setWindowTitle("学生管理系统");
