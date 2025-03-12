@@ -1,0 +1,10 @@
+release/main.o
+release/mainwindow.o
+release/signupwindow.o
+release/userwindow.o
+release/widget.o
+release/qrc_qmake_qmake_qm_files.o
+release/moc_mainwindow.o
+release/moc_signupwindow.o
+release/moc_userwindow.o
+release/moc_widget.o
