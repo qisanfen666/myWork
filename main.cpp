@@ -1,3 +1,5 @@
+//IMS information management system
+
 #include "widget.h"
 #include <QApplication>
 #include <QLocale>
