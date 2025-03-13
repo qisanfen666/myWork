@@ -1,3 +1,5 @@
+//管理员权限界面
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <widget.h>
@@ -8,14 +10,17 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    //添加图片
     QIcon con("E:\\picture\\emu.png");
     this->setWindowIcon(con);
     this->setWindowTitle("学生管理系统");
 
+    //连接信号与槽
     connect(ui->return_Button,SIGNAL(&QPushButton::pressed),this,SLOT(on_return_Button_clicked()));
     connect(ui->close_Button,SIGNAL(&QPushButton::pressed),this,SLOT(on_close_Button_clicked()));
     connect(ui->confirm_Button,SIGNAL(&QPushButton::pressed),this,SLOT(on_confirm_Button_clicked()));
 
+    //连接数据库
     db=QSqlDatabase::addDatabase("QODBC"); // jiasai bd qudong
     db.setPort(3306);
     db.setDatabaseName ("test");
@@ -24,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     db.setPassword("061532");
     db.open();
 
+    //设置表的显示
     m=new QSqlTableModel;
     m->setTable("student");
     m->setHeaderData(0, Qt::Horizontal, tr("姓名"));
@@ -37,6 +43,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//关闭当前界面，返回登录界面
 void MainWindow::on_return_Button_clicked()
 {
     this->close();
@@ -44,16 +51,13 @@ void MainWindow::on_return_Button_clicked()
     w->show();
 }
 
-
+//关闭当前界面
 void MainWindow::on_close_Button_clicked()
 {
     this->close();
 }
 
-
-
-
-
+//记录选择的操作类型
 void MainWindow::on_functionBox_currentTextChanged(const QString &arg1)
 {
     this->func=arg1;
@@ -62,11 +66,13 @@ void MainWindow::on_functionBox_currentTextChanged(const QString &arg1)
 
 void MainWindow::on_confirm_Button_clicked()
 {
+    //获取输入的文本
     QString name=ui->nameLine->text();
     QString id=ui->idLine->text();
     QString gender=this->gender;
-
     QSqlQuery query;
+
+    //根据选择的操作类型对数据库进行操作
     if(func=="增加"){
         QString sql=QString("insert into student value('%1','%2','%3');").arg(name,id,gender);
         if(query.exec(sql)){
@@ -99,6 +105,8 @@ void MainWindow::on_confirm_Button_clicked()
         m->setHeaderData(0, Qt::Horizontal, tr("姓名"));
         m->setHeaderData(1, Qt::Horizontal, tr("学号"));
         m->setHeaderData(2, Qt::Horizontal, tr("性别"));
+
+        //如果没输入则查询所有信息，有输入则按id或name查询
         if(name==""&&id==""){
             m->select();
         }
@@ -112,7 +120,7 @@ void MainWindow::on_confirm_Button_clicked()
     ui->genderBox->setCurrentIndex(0);
 }
 
-
+//记录选择的性别
 void MainWindow::on_genderBox_currentTextChanged(const QString &arg1)
 {
     this->gender=arg1;
