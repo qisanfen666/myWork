@@ -37,6 +37,15 @@ public:
     QLineEdit *idLine;
     QLabel *name;
     QTableView *tableView;
+    QLabel *inName;
+    QPushButton *nameAscButton;
+    QPushButton *nameDescButton;
+    QLabel *inTime;
+    QPushButton *timeAscButton;
+    QPushButton *timeDescButton;
+    QLabel *inGender;
+    QPushButton *maleButton;
+    QPushButton *femaleButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -78,11 +87,43 @@ public:
         name->setFont(font);
         tableView = new QTableView(centralwidget);
         tableView->setObjectName("tableView");
-        tableView->setGeometry(QRect(60, 20, 681, 391));
+        tableView->setGeometry(QRect(60, 20, 591, 391));
+        inName = new QLabel(centralwidget);
+        inName->setObjectName("inName");
+        inName->setGeometry(QRect(680, 60, 81, 20));
+        QFont font1;
+        font1.setPointSize(11);
+        inName->setFont(font1);
+        nameAscButton = new QPushButton(centralwidget);
+        nameAscButton->setObjectName("nameAscButton");
+        nameAscButton->setGeometry(QRect(680, 90, 81, 23));
+        nameDescButton = new QPushButton(centralwidget);
+        nameDescButton->setObjectName("nameDescButton");
+        nameDescButton->setGeometry(QRect(680, 120, 80, 23));
+        inTime = new QLabel(centralwidget);
+        inTime->setObjectName("inTime");
+        inTime->setGeometry(QRect(670, 170, 101, 16));
+        inTime->setFont(font1);
+        timeAscButton = new QPushButton(centralwidget);
+        timeAscButton->setObjectName("timeAscButton");
+        timeAscButton->setGeometry(QRect(680, 200, 80, 23));
+        timeDescButton = new QPushButton(centralwidget);
+        timeDescButton->setObjectName("timeDescButton");
+        timeDescButton->setGeometry(QRect(680, 230, 80, 23));
+        inGender = new QLabel(centralwidget);
+        inGender->setObjectName("inGender");
+        inGender->setGeometry(QRect(690, 280, 81, 16));
+        inGender->setFont(font1);
+        maleButton = new QPushButton(centralwidget);
+        maleButton->setObjectName("maleButton");
+        maleButton->setGeometry(QRect(680, 310, 80, 23));
+        femaleButton = new QPushButton(centralwidget);
+        femaleButton->setObjectName("femaleButton");
+        femaleButton->setGeometry(QRect(680, 340, 80, 23));
         UserWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(UserWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 24));
+        menubar->setGeometry(QRect(0, 0, 800, 20));
         UserWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(UserWindow);
         statusbar->setObjectName("statusbar");
@@ -103,6 +144,15 @@ public:
 
         close_Button->setText(QCoreApplication::translate("UserWindow", "\345\205\263\351\227\255", nullptr));
         name->setText(QCoreApplication::translate("UserWindow", "\345\247\223\345\220\215\357\274\232", nullptr));
+        inName->setText(QCoreApplication::translate("UserWindow", "\346\214\211\347\205\247\345\247\223\345\220\215:", nullptr));
+        nameAscButton->setText(QCoreApplication::translate("UserWindow", "\345\215\207\345\272\217", nullptr));
+        nameDescButton->setText(QCoreApplication::translate("UserWindow", "\351\231\215\345\272\217", nullptr));
+        inTime->setText(QCoreApplication::translate("UserWindow", "\346\214\211\347\205\247\345\205\245\345\255\246\346\227\266\351\227\264:", nullptr));
+        timeAscButton->setText(QCoreApplication::translate("UserWindow", "\345\215\207\345\272\217", nullptr));
+        timeDescButton->setText(QCoreApplication::translate("UserWindow", "\351\231\215\345\272\217", nullptr));
+        inGender->setText(QCoreApplication::translate("UserWindow", "\346\214\211\347\205\247\346\200\247\345\210\253:", nullptr));
+        maleButton->setText(QCoreApplication::translate("UserWindow", "\347\224\267", nullptr));
+        femaleButton->setText(QCoreApplication::translate("UserWindow", "\345\245\263", nullptr));
     } // retranslateUi
 
 };

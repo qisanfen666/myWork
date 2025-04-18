@@ -12,7 +12,7 @@
 *.rej
 *.so
 *.so.*
-*_pch.h.cpp
+#*_pch.h.cpp
 *_resource.rc
 *.qm
 .#*
@@ -26,9 +26,9 @@ tags
 Makefile*
 *.prl
 *.app
-moc_*.cpp
-ui_*.h
-qrc_*.cpp
+#moc_*.cpp
+#ui_*.h
+#qrc_*.cpp
 Thumbs.db
 *.res
 *.rc

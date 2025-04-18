@@ -32,9 +32,12 @@ MainWindow::MainWindow(QWidget *parent)
     //设置表的显示
     m=new QSqlTableModel;
     m->setTable("student");
-    m->setHeaderData(0, Qt::Horizontal, tr("姓名"));
-    m->setHeaderData(1, Qt::Horizontal, tr("学号"));
-    m->setHeaderData(2, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
     ui->tableView->setModel(m);
 }
 
@@ -68,13 +71,14 @@ void MainWindow::on_confirm_Button_clicked()
 {
     //获取输入的文本
     QString name=ui->nameLine->text();
-    QString id=ui->idLine->text();
+    QString stuId=ui->idLine->text();
+    QString phone=ui->phoneLine->text();
     QString gender=this->gender;
     QSqlQuery query;
 
     //根据选择的操作类型对数据库进行操作
     if(func=="增加"){
-        QString sql=QString("insert into student value('%1','%2','%3');").arg(name,id,gender);
+        QString sql=QString("insert into student (name,stuId,gender,phone)value('%1','%2','%3','%4');").arg(name,stuId,gender,phone);
         if(query.exec(sql)){
             QMessageBox::information(this,"提示","添加成功");
         }
@@ -83,7 +87,7 @@ void MainWindow::on_confirm_Button_clicked()
         }
     }
     if(func=="删除"){
-        QString sql=QString("delete from student where name='%1'&&id='%2' ;").arg(name,id);
+        QString sql=QString("delete from student where name='%1'&&stuId='%2' ;").arg(name,stuId);
         if(query.exec(sql)){
             QMessageBox::information(this,"提示","删除成功");
         }
@@ -92,7 +96,7 @@ void MainWindow::on_confirm_Button_clicked()
         }
     }
     if(func=="修改"){
-        QString sql=QString("update student set id='%1',gender='%2' where name='%3'").arg(id,gender,name);
+        QString sql=QString("update student set name='%1',gender='%2',phone='%3' where stuId='%4'").arg(name,gender,phone,stuId);
         if(query.exec(sql)){
             QMessageBox::information(this,"提示","修改成功");
         }
@@ -102,27 +106,118 @@ void MainWindow::on_confirm_Button_clicked()
     }
     if(func=="查询"){
         m->setTable("student");
-        m->setHeaderData(0, Qt::Horizontal, tr("姓名"));
-        m->setHeaderData(1, Qt::Horizontal, tr("学号"));
-        m->setHeaderData(2, Qt::Horizontal, tr("性别"));
+        m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+        m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+        m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+        m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+        m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+        m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+
 
         //如果没输入则查询所有信息，有输入则按id或name查询
-        if(name==""&&id==""){
+        if(name==""&&stuId==""){
             m->select();
         }
         else{
-            m->setFilter(QString("id='%1'|| name='%2'").arg(id,name));
+            m->setFilter(QString("stuId='%1'|| name='%2'").arg(stuId,name));
             m->select();
         }
     }
     ui->nameLine->clear();
     ui->idLine->clear();
     ui->genderBox->setCurrentIndex(0);
+    ui->phoneLine->clear();
 }
 
 //记录选择的性别
 void MainWindow::on_genderBox_currentTextChanged(const QString &arg1)
 {
     this->gender=arg1;
+}
+
+
+void MainWindow::on_nameAscButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(1,Qt::AscendingOrder);
+    m->select();
+}
+
+
+void MainWindow::on_nameDescButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(1,Qt::DescendingOrder);
+    m->select();
+}
+
+
+void MainWindow::on_timeAscButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(0,Qt::AscendingOrder);
+    m->select();
+}
+
+
+void MainWindow::on_timeDescButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(0,Qt::DescendingOrder);
+    m->select();
+}
+
+
+void MainWindow::on_maleButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(0,Qt::AscendingOrder);
+    m->setFilter(QString("gender='男'"));
+    m->select();
+}
+
+
+void MainWindow::on_femaleButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(0,Qt::AscendingOrder);
+    m->setFilter(QString("gender='女'"));
+    m->select();
 }
 

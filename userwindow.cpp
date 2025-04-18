@@ -32,9 +32,12 @@ UserWindow::UserWindow(QWidget *parent)
     //设置表的显示
     m=new QSqlTableModel;
     m->setTable("student");
-    m->setHeaderData(0, Qt::Horizontal, tr("姓名"));
-    m->setHeaderData(1, Qt::Horizontal, tr("学号"));
-    m->setHeaderData(2, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
     ui->tableView->setModel(m);
 }
 
@@ -49,9 +52,12 @@ void UserWindow::on_confirm_Button_clicked()
     QString id=ui->idLine->text();
 
     m->setTable("student");
-    m->setHeaderData(0, Qt::Horizontal, tr("姓名"));
-    m->setHeaderData(1, Qt::Horizontal, tr("学号"));
-    m->setHeaderData(2, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
 
     //如果没输入则查询所有信息，有输入则按id或name查询
     if(name==""&&id==""){
@@ -79,5 +85,91 @@ void UserWindow::on_return_Button_clicked()
 void UserWindow::on_close_Button_clicked()
 {
     this->close();
+}
+
+
+void UserWindow::on_nameAscButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(1,Qt::AscendingOrder);
+    m->select();
+}
+
+
+void UserWindow::on_nameDescButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(1,Qt::DescendingOrder);
+    m->select();
+}
+
+
+void UserWindow::on_timeAscButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(0,Qt::AscendingOrder);
+    m->select();
+}
+
+
+void UserWindow::on_timeDescButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(0,Qt::DescendingOrder);
+    m->select();
+}
+
+
+void UserWindow::on_maleButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(0,Qt::AscendingOrder);
+    m->setFilter(QString("gender='男'"));
+    m->select();
+}
+
+
+void UserWindow::on_femaleButton_clicked()
+{
+    m->setTable("student");
+    m->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    m->setHeaderData(1, Qt::Horizontal, tr("姓名"));
+    m->setHeaderData(5, Qt::Horizontal, tr("性别"));
+    m->setHeaderData(2, Qt::Horizontal, tr("学号"));
+    m->setHeaderData(3, Qt::Horizontal, tr("手机号"));
+    m->setHeaderData(4, Qt::Horizontal, tr("入学时间"));
+    m->setSort(0,Qt::AscendingOrder);
+    m->setFilter(QString("gender='女'"));
+    m->select();
 }
 

@@ -40,8 +40,18 @@ void SignUpWindow::on_confirm_Button_clicked()
     QString account=ui->accountLine->text();
     QString pwd=ui->passwordLine->text();
     QString pwd1=ui->pwdConfirm->text();
+    QString key=ui->keyLine->text();
+    QString level;
+    if(key=="secretKey@123"){
+        level="1";
+    }
+    else{
+        level="2";
+        QMessageBox::information(this,"提示","口令不存在");
+    }
+
     QSqlQuery query;
-    QString sql=QString("insert into account (account,password) values ('%1','%2');").arg(account,pwd);
+    QString sql=QString("insert into account (account,password,level) values ('%1','%2','%3');").arg(account,pwd,level);
 
     //如果密码与确认密码一致，则将账号信息插入数据库
     if(pwd==pwd1 && query.exec(sql)){

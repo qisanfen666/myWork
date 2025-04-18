@@ -31,6 +31,8 @@ public:
     QLabel *account;
     QLineEdit *pwdConfirm;
     QLabel *label;
+    QLineEdit *keyLine;
+    QLabel *key;
 
     void setupUi(QWidget *SignUpWindow)
     {
@@ -54,10 +56,10 @@ public:
         confirm_Button->setGeometry(QRect(160, 300, 91, 28));
         accountLine = new QLineEdit(SignUpWindow);
         accountLine->setObjectName("accountLine");
-        accountLine->setGeometry(QRect(160, 140, 251, 31));
+        accountLine->setGeometry(QRect(160, 120, 251, 31));
         password = new QLabel(SignUpWindow);
         password->setObjectName("password");
-        password->setGeometry(QRect(100, 180, 69, 19));
+        password->setGeometry(QRect(110, 160, 69, 19));
         QFont font1;
         font1.setPointSize(11);
         password->setFont(font1);
@@ -66,20 +68,27 @@ public:
         return_Button->setGeometry(QRect(320, 300, 92, 28));
         passwordLine = new QLineEdit(SignUpWindow);
         passwordLine->setObjectName("passwordLine");
-        passwordLine->setGeometry(QRect(160, 180, 251, 31));
+        passwordLine->setGeometry(QRect(160, 160, 251, 31));
         passwordLine->setEchoMode(QLineEdit::EchoMode::Password);
         account = new QLabel(SignUpWindow);
         account->setObjectName("account");
-        account->setGeometry(QRect(100, 140, 69, 19));
+        account->setGeometry(QRect(110, 130, 69, 19));
         account->setFont(font1);
         pwdConfirm = new QLineEdit(SignUpWindow);
         pwdConfirm->setObjectName("pwdConfirm");
-        pwdConfirm->setGeometry(QRect(160, 220, 251, 31));
+        pwdConfirm->setGeometry(QRect(160, 200, 251, 31));
         pwdConfirm->setEchoMode(QLineEdit::EchoMode::Password);
         label = new QLabel(SignUpWindow);
         label->setObjectName("label");
-        label->setGeometry(QRect(60, 220, 81, 20));
+        label->setGeometry(QRect(80, 200, 81, 20));
         label->setFont(font1);
+        keyLine = new QLineEdit(SignUpWindow);
+        keyLine->setObjectName("keyLine");
+        keyLine->setGeometry(QRect(160, 240, 251, 31));
+        key = new QLabel(SignUpWindow);
+        key->setObjectName("key");
+        key->setGeometry(QRect(70, 240, 81, 20));
+        key->setFont(font1);
 
         retranslateUi(SignUpWindow);
 
@@ -96,6 +105,7 @@ public:
         return_Button->setText(QCoreApplication::translate("SignUpWindow", "\350\277\224\345\233\236", nullptr));
         account->setText(QCoreApplication::translate("SignUpWindow", "\350\264\246\345\217\267\357\274\232", nullptr));
         label->setText(QCoreApplication::translate("SignUpWindow", "\347\241\256\350\256\244\345\257\206\347\240\201\357\274\232", nullptr));
+        key->setText(QCoreApplication::translate("SignUpWindow", "\345\217\243\344\273\244(\351\200\211\345\241\253):", nullptr));
     } // retranslateUi
 
 };

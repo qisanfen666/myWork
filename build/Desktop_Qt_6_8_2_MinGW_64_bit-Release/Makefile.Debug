@@ -1702,7 +1702,39 @@ debug/signupwindow.o: ../../signupwindow.cpp ../../signupwindow.h \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/qmessagebox.h \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/qdialog.h \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		ui_signupwindow.h
+		ui_signupwindow.h \
+		D:/QT/6.8.2/mingw_64/include/QtCore/QVariant \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QApplication \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qapplication.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QLabel \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qlabel.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qframe.h \
+		D:/QT/6.8.2/mingw_64/include/QtGui/qpicture.h \
+		D:/QT/6.8.2/mingw_64/include/QtGui/qtextdocument.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QLineEdit \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qlineedit.h \
+		D:/QT/6.8.2/mingw_64/include/QtGui/qtextcursor.h \
+		D:/QT/6.8.2/mingw_64/include/QtGui/qtextformat.h \
+		D:/QT/6.8.2/mingw_64/include/QtGui/qpen.h \
+		D:/QT/6.8.2/mingw_64/include/QtGui/qtextoption.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QPushButton \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../widget.h \
+		D:/QT/6.8.2/mingw_64/include/QtCore/QProcess \
+		D:/QT/6.8.2/mingw_64/include/QtCore/qprocess.h \
+		../../mainwindow.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QMainWindow \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qmainwindow.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		D:/QT/6.8.2/mingw_64/include/QtSql/QSqlTableModel \
+		D:/QT/6.8.2/mingw_64/include/QtSql/qsqltablemodel.h \
+		D:/QT/6.8.2/mingw_64/include/QtSql/qsqlquerymodel.h \
+		D:/QT/6.8.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+		D:/QT/6.8.2/mingw_64/include/QtCore/QDebug \
+		D:/QT/6.8.2/mingw_64/include/QtSql/QSqlError \
+		D:/QT/6.8.2/mingw_64/include/QtSql/qsqlerror.h \
+		../../userwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\signupwindow.o ..\..\signupwindow.cpp
 
 debug/userwindow.o: ../../userwindow.cpp ../../userwindow.h \
@@ -1950,7 +1982,20 @@ debug/userwindow.o: ../../userwindow.cpp ../../userwindow.h \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/qstatusbar.h \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/QTableView \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/qtableview.h \
-		D:/QT/6.8.2/mingw_64/include/QtWidgets/QWidget
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QWidget \
+		../../widget.h \
+		D:/QT/6.8.2/mingw_64/include/QtCore/QProcess \
+		D:/QT/6.8.2/mingw_64/include/QtCore/qprocess.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QMessageBox \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qdialog.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../../mainwindow.h \
+		D:/QT/6.8.2/mingw_64/include/QtSql/QSqlDatabase \
+		D:/QT/6.8.2/mingw_64/include/QtCore/QDebug \
+		D:/QT/6.8.2/mingw_64/include/QtSql/QSqlError \
+		D:/QT/6.8.2/mingw_64/include/QtSql/qsqlerror.h \
+		../../signupwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\userwindow.o ..\..\userwindow.cpp
 
 debug/widget.o: ../../widget.cpp ../../widget.h \
@@ -2174,6 +2219,10 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		D:/QT/6.8.2/mingw_64/include/QtCore/QVariant \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/QApplication \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/qapplication.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QCommandLinkButton \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qcommandlinkbutton.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/qabstractbutton.h \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/QLabel \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/qlabel.h \
 		D:/QT/6.8.2/mingw_64/include/QtWidgets/qframe.h \
@@ -2185,9 +2234,7 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		D:/QT/6.8.2/mingw_64/include/QtGui/qtextformat.h \
 		D:/QT/6.8.2/mingw_64/include/QtGui/qpen.h \
 		D:/QT/6.8.2/mingw_64/include/QtGui/qtextoption.h \
-		D:/QT/6.8.2/mingw_64/include/QtWidgets/QPushButton \
-		D:/QT/6.8.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		D:/QT/6.8.2/mingw_64/include/QtWidgets/qabstractbutton.h
+		D:/QT/6.8.2/mingw_64/include/QtWidgets/QPushButton
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\widget.o ..\..\widget.cpp
 
 debug/qrc_qmake_qmake_qm_files.o: debug/qrc_qmake_qmake_qm_files.cpp 

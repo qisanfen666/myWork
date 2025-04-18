@@ -29,6 +29,18 @@ private slots:
 
     void on_genderBox_currentTextChanged(const QString &arg1);
 
+    void on_nameAscButton_clicked();
+
+    void on_nameDescButton_clicked();
+
+    void on_timeAscButton_clicked();
+
+    void on_timeDescButton_clicked();
+
+    void on_maleButton_clicked();
+
+    void on_femaleButton_clicked();
+
 private:
     QSqlDatabase db;
     Ui::MainWindow *ui;
